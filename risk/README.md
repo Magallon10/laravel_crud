@@ -32,4 +32,9 @@ También puedes ejecutar un comando que haga estos dos a la vez:
 composer dev
 ```
 
+## Crear layouts
+Ahora vamos a crear los layouts de la página.
+Primero he creado una carpeta layouts dentro de ./resources/views/components
+Dentro de esa carpeta crearé los layouts de mi web
+
 
