@@ -37,4 +37,8 @@ Ahora vamos a crear los layouts de la página.
 Primero he creado una carpeta layouts dentro de ./resources/views/components
 Dentro de esa carpeta crearé los layouts de mi web
 
+### Header
+He hecho un header con un icono de usuario, el cual cambia según si estás con una sesión iniciada o no
+Con @guest he puesto el código del icono sin haber iniciado sesión y con @auth he 
+puesto el código con la sesión iniciada
 
