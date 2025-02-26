@@ -14,7 +14,7 @@
             </ul>
         </div>
         <div class="navbar-center">
-            <a class="btn btn-ghost text-xl">{{__("Proyecto")}}</a>
+            <a href="#" class="btn btn-ghost text-xl">{{__("Proyecto")}}</a>
         </div>
         @guest
         <div class="navbar-end">
@@ -29,8 +29,8 @@
                 <ul
                     tabindex="0"
                     class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                    <li><a>{{__("Registrarse")}}</a></li>
-                    <li><a>{{__("Iniciar sesión")}}</a></li>
+                    <li><a href="{{route('register')}}">{{__("Registrarse")}}</a></li>
+                    <li><a href="{{route('login')}}">{{__("Iniciar sesión")}}</a></li>
                 </ul>
             </div>
         </div>

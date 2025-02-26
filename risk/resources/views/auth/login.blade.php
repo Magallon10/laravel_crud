@@ -1,4 +1,7 @@
-<x-guest-layout>
+<x-layouts.layout>
+    <div class="flex items-center justify-center min-h-screen">
+        <div class="w-full max-w-md p-8 rounded-lg shadow-md bg-gray-200 max-h-[90vh] overflow-auto">
+            <h1 class="text-green-600 text-3xl font-bold mb-6 text-center">{{ __("Login") }}</h1>
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 
@@ -44,4 +47,6 @@
             </x-primary-button>
         </div>
     </form>
-</x-guest-layout>
+        </div>
+    </div>
+</x-layouts.layout>

@@ -42,3 +42,13 @@ He hecho un header con un icono de usuario, el cual cambia según si estás con 
 Con @guest he puesto el código del icono sin haber iniciado sesión y con @auth he 
 puesto el código con la sesión iniciada
 
+## Registrarse e Iniciar Sesión
+En el header ponemos un {{route('register')}} o {{route('login')}} que nos llevará a las 
+vistas de auth en las que nos podremos registrar o iniciar sesión
+Para poder ver estos formularios sin cabmiar de página haremos lo siguiente:
+
+## Redirigir despues de registrarse al home
+Metiendose en [AuthenticatedSessionController.php](./app/Http/Controllers/Auth/AuthenticatedSessionController.php)
+En la función de store que es la que usa cuando envías el formulario de register, por defecto redirige a dashboard
+pero si quieres que te redirija al home pues pones la ruta de home
+
