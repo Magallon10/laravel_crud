@@ -46,9 +46,13 @@
                     </div>
                 </div>
                 <ul
-                    tabindex="0"
+                    tabindex="1"
                     class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                    <li><a>{{__("Logout")}}</a></li>
+                    <li><p>{{__("Bienvenido ")}}{{auth()->user()->name}}</p></li>
+                    <li> <form action="{{route("logout")}}" method="POST">
+                            @csrf
+                            <input class="btn" type="submit" value="Logout">
+                        </form></li>
                 </ul>
             </div>
         </div>

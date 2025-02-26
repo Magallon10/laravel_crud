@@ -52,3 +52,8 @@ Metiendose en [AuthenticatedSessionController.php](./app/Http/Controllers/Auth/A
 En la función de store que es la que usa cuando envías el formulario de register, por defecto redirige a dashboard
 pero si quieres que te redirija al home pues pones la ruta de home
 
+## Logout
+Para desloguearse tienes que hacerlo mediante un formulario que llame a la ruta "logout" con el método post
+
+
+
