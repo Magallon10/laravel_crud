@@ -55,5 +55,39 @@ pero si quieres que te redirija al home pues pones la ruta de home
 ## Logout
 Para desloguearse tienes que hacerlo mediante un formulario que llame a la ruta "logout" con el método post
 
+## Landing page
+Lo único a destacar es que en la parte de @auth he puesto el nombre del usuario con {{auth()->user()->name}}
+
+## Modelo
+Vamos a crear todos los archivos necesarios escribiendo en la terminal
+```bash
+php artisan make:model Alumno -a
+```
+
+## Migraciones
+Para poder configurar una conexión con la base de datos y nuestro modelo crearemos una migración.
+Esto lo haremos con:
+```bash
+php artisan make:migration proyectos
+```
+
+En la variable $table iremos asignando los campos que queremos que tegna la tabla
 
 
+
+## Factorías
+Con cada ejecución de una factoría se crea un registro en la tabla proyectos, en el definition pondremos
+todos los campos que va a tener
+
+## Seeder
+Aquí pondremos cúantos registros crearemos de la factoria de proyectos, lo hacemos con:
+Proyecto::factory()->count(nº de registros)->create();
+
+## DatabaseSeeder
+Finalmente asignaremos a este archivo qué seeders queremos que se ejecuten, de momento nosotros solo ejecutamos
+el seeder de proyecto
+
+Ahora con la migración creada la podemos ejecutar con:
+```bash
+php artisan migrate:refresh --seed
+```
