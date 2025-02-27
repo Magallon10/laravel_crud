@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProyectoController;
 
 Route::get('/', function () {
     return view('home');
@@ -10,6 +11,9 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return view('home');
 })->name('home');
+
+Route::resource('proyectos', ProyectoController::class)
+    ->middleware('auth');
 
 Route::get('/dashboard', function () {
     return view('dashboard');

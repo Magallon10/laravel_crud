@@ -91,3 +91,8 @@ Ahora con la migración creada la podemos ejecutar con:
 ```bash
 php artisan migrate:refresh --seed
 ```
+
+## Listar proyectos
+Empezamos modificando la función index del controlador de proyecto [ProyectoController.php](./app/Http/Controllers/ProyectoController.php)
+
+Ahí haremos que cuando se busque el proyectos.index devuelva la vista de proyecto.listado con el array de todos los alumnos
