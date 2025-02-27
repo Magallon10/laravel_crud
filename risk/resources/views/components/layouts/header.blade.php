@@ -14,7 +14,7 @@
             </ul>
         </div>
         <div class="navbar-center">
-            <a href="#" class="btn btn-ghost text-xl">{{__("Proyecto")}}</a>
+            <a href="{{route("home")}}" class="btn btn-ghost text-xl">{{__("Proyecto")}}</a>
         </div>
         @guest
         <div class="navbar-end">
@@ -48,7 +48,7 @@
                 <ul
                     tabindex="1"
                     class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
-                    <li><p>{{__("Bienvenido ")}}{{auth()->user()->name}}</p></li>
+
                     <li> <form action="{{route("logout")}}" method="POST">
                             @csrf
                             <input class="btn" type="submit" value="Logout">
