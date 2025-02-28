@@ -95,4 +95,44 @@ php artisan migrate:refresh --seed
 ## Listar proyectos
 Empezamos modificando la función index del controlador de proyecto [ProyectoController.php](./app/Http/Controllers/ProyectoController.php)
 
-Ahí haremos que cuando se busque el proyectos.index devuelva la vista de proyecto.listado con el array de todos los alumnos
+Ahí haremos que cuando se busque el proyectos.index devuelva la vista del listado con el array de 
+todos los alumnos
+En esa vista he hecho un foreach del array alumnos que le hemos pasado y con eso he hecho la tabla
+
+## Crear proyecto
+Cuando le demos al botón del listado de Crear proyecto nos llevará a proyecto.create
+Ahí desplegaremos la vista del formulario para crear un proyecto nuevo, el formulario se compone de un
+action proyectos.store con método post.
+
+Inicialmente nos dará un error de unauthorized cuando intentemos ejecutarlo, eso pas porque tenemos que poner a true
+la función authorize del [StoreProyectoRequest](./app/Http/Requests/StoreProyectoRequest.php)
+
+### Asignar campos a proyecto
+Iremos al modelo [Proyecto.php](./app/Models/Proyecto.php) y en su función asignaremos un fillable con
+todos los campos que queremos que tenga, exceptuando al id, el created_at y updated_at
+
+### Adaptar store
+También tendremos que modificar la función "store" de [ProyectoController.php](./app/Http/Controllers/ProyectoController.php)
+Para ello he cogido todos los campos del request, excepto los mencionados en el parrafo anterior.
+Crearemos un objeto Proyecto con esos campos y haremos save() de ese objeto
+Finalmente redirigiremos a la lista de proyectos una vez se haya guardado.
+
+## Eliminar proyectos
+
+### Controller
+En el método destroy simplemente añadiremos la línea que elimina el proyecto:
+$proyecto->delete();
+Y luego redigiremos al listado de proyectos
+
+### Vista
+Para borrar un proyecto necesitamos que mediante un formulario con el método DELETE llame a la ruta
+proyectos.destroy con el id del proyecto que queremos borrar. Para que detecte que el formulario
+usa el método DELETE pondremos el method POST en la cabecera del formulario (porque solo detecta post o get)
+y luego dentro del formulario pondremos @method("DELETE")
+
+
+## Editar proyectos
+
+### Controller
+
+### Vista

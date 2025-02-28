@@ -14,7 +14,7 @@
             </ul>
         </div>
         <div class="navbar-center">
-            <a href="{{route("home")}}" class="btn btn-ghost text-xl">{{__("Proyecto")}}</a>
+            <a href="{{route("home")}}" class="btn btn-ghost text-xl">{{__("Inicio")}}</a>
         </div>
         @guest
         <div class="navbar-end">

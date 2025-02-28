@@ -12,7 +12,7 @@ Route::get('/home', function () {
     return view('home');
 })->name('home');
 
-Route::resource('proyectos', ProyectoController::class)
+Route::resource('proyectos',ProyectoController::class)
     ->middleware('auth');
 
 Route::get('/dashboard', function () {

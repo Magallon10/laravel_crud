@@ -27,7 +27,7 @@ class ProyectoController extends Controller
      */
     public function create()
     {
-        //
+        return view('proyectos.create');
     }
 
     /**
@@ -35,7 +35,12 @@ class ProyectoController extends Controller
      */
     public function store(StoreProyectoRequest $request)
     {
-        //
+        $datos = $request->only("titulo","horas_previstas","fecha_inicio");
+        $proyecto = new Proyecto($datos);
+        $proyecto->save();
+
+
+        return redirect()->route('proyectos.index');
     }
 
     /**
@@ -67,6 +72,7 @@ class ProyectoController extends Controller
      */
     public function destroy(Proyecto $proyecto)
     {
-        //
+        $proyecto->delete();
+        return redirect()->route('proyectos.index');
     }
 }
