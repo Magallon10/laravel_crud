@@ -41,7 +41,7 @@
                         </form>
                     </td>
                     {{--                        Vero o show--}}
-                    <td><a href="#">Ver</a></td>
+                    <td><a href="{{route("proyectos.show",$fila->id)}}">Ver</a></td>
                 </tr>
 
             @endforeach

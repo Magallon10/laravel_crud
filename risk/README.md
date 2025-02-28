@@ -168,4 +168,15 @@ tiene que ser un route("proyectos.update", $proyecto->id) ya que el método upda
 Además, como hemos hecho en el destroy incluiremos un @method("PUT") que es el método para actualizar. 
 
 
+## Mostrar alumno
+
+### Controller
+Para el controller es como el edit, simplemente tiene que mandar a la vista de poryectos.show y darle
+la variable del proyecto también
+
+### Vista
+He creado una tabla, simplemente en cada td necesario se ven los valores de la variable $proyecto que
+le ha enviado el controller.
+
+
 
