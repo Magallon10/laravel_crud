@@ -11,7 +11,7 @@ class UpdateProyectoRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -22,7 +22,20 @@ class UpdateProyectoRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            "titulo" => "required|string|min:5",
+            "horas_previstas" => "required|integer",
+            "fecha_inicio" => "required|date|before:today",
+        ];
+    }
+
+    public function messages(): array{
+        return [
+            "titulo.required" => "El titulo es obligatorio",
+            "titulo.min" => "El titulo debe tener al menos 5 caracteres",
+            "titulo.string" => "El titulo debe ser una cadena de texto",
+            "horas_previstas.required" => "Las horas previstas son obligatorias",
+            "fecha_inicio.required" => "La fecha de inicio es obligatoria",
+            "fecha_inicio.before" => "La fecha de inicio debe anterior a la actual",
         ];
     }
 }

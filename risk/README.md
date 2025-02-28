@@ -100,12 +100,25 @@ todos los alumnos
 En esa vista he hecho un foreach del array alumnos que le hemos pasado y con eso he hecho la tabla
 
 ## Crear proyecto
+
+### Vista
 Cuando le demos al botón del listado de Crear proyecto nos llevará a proyecto.create
 Ahí desplegaremos la vista del formulario para crear un proyecto nuevo, el formulario se compone de un
 action proyectos.store con método post.
 
+### Unauthorized
 Inicialmente nos dará un error de unauthorized cuando intentemos ejecutarlo, eso pas porque tenemos que poner a true
 la función authorize del [StoreProyectoRequest](./app/Http/Requests/StoreProyectoRequest.php)
+
+### Crear reglas
+Para asignar validaciones a los campos lo haremos en el mismo StoreProyectoRequest.php
+En el método rules pondremos un return con todas las reglas que se van a aplicara los campos, por ejemplo
+required(obligatorio),date(que sea una fecha), min:5(5 carácteres minimo), etc.
+
+### Mostrar mensajes de error
+Si esas validaciones ven que hay un error devolverán un mensaje, por lo tanto por cada regla que hayamos puesto
+habrá una respuesta de error, que en el formulario llamaremos con @error("el campo que validamos") y dentro de 
+ese error podremos llamar a la variable message.
 
 ### Asignar campos a proyecto
 Iremos al modelo [Proyecto.php](./app/Models/Proyecto.php) y en su función asignaremos un fillable con
@@ -116,6 +129,8 @@ También tendremos que modificar la función "store" de [ProyectoController.php]
 Para ello he cogido todos los campos del request, excepto los mencionados en el parrafo anterior.
 Crearemos un objeto Proyecto con esos campos y haremos save() de ese objeto
 Finalmente redirigiremos a la lista de proyectos una vez se haya guardado.
+
+
 
 ## Eliminar proyectos
 
@@ -134,5 +149,23 @@ y luego dentro del formulario pondremos @method("DELETE")
 ## Editar proyectos
 
 ### Controller
+Primero haremos el método edit que simplemente te devuelve la vista proyectos.edit con la variable del proyecto 
+que quieres editar
+
+Luego pasamos al método update, en el que haremos una variable que recogerá todos los datos nuevos con un
+$request->input(), después hacemos un update a ese proyecto con esos datos y devolveremos la vista del listado de nuevo
+
+### Unauthorized
+Al igual que al crear tienes que modificar el [UpdateProyectoRequest](./app/Http/Requests/UpdateProyectoRequest.php)
+y poner authorize en true, después he copiado las mismas reglas y mensajes que en el de crear.
 
 ### Vista
+Para editar pondré un botón que llame a proyectos.edit, el cual nos llevará al formulario para editar y también
+hay que asignarle el id del proyecto que queremos editar
+
+Ahora tendremos un formulario bastante parecido al de crear proyecto, la diferencia es que el action de este
+tiene que ser un route("proyectos.update", $proyecto->id) ya que el método update necesita un objeto proyecto.
+Además, como hemos hecho en el destroy incluiremos un @method("PUT") que es el método para actualizar. 
+
+
+
