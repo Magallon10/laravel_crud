@@ -1,10 +1,10 @@
 <x-layouts.layout>
     <div class="p-2 bg-gray-200">
-        <a class="btn btn-sm btn-primary " href="{{route("proyectos.create")}}">Crear proyecto</a>
-        <a class="btn btn-sm btn-secondary " href="{{route("home")}}">Volver</a>
+        <a class="btn btn-sm btn-primary " href="{{route("proyectos.create")}}">{{__("Make proyect")}}</a>
+        <a class="btn btn-sm btn-secondary " href="{{route("home")}}">{{__("Back")}}</a>
     </div>
     <div class="max-h-full overflow-x-auto">
-        <table class="table table-xs table-pin-rows table-pin-cols">
+        <table class="table table-xs table-pin-rows table-pin-cols w-3/4">
             <thead>
             <tr>
                 @foreach($campos as $campo)
@@ -41,7 +41,7 @@
                         </form>
                     </td>
                     {{--                        Vero o show--}}
-                    <td><a href="{{route("proyectos.show",$fila->id)}}">Ver</a></td>
+                    <td ><a class="hover:bg-gray-100 p-2" href="{{route("proyectos.show",$fila->id)}}">{{__("Show")}}</a></td>
                 </tr>
 
             @endforeach

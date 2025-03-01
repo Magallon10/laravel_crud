@@ -50,8 +50,8 @@
 
                 </div>
                 <div>
-                    <button class= "btn btn-sm btn-success"  type="submit">Guardar </button>
-                    <a class= "btn btn-sm btn-error" href="{{route("proyectos.index")}}">Cancelar</a>
+                    <button class= "btn btn-sm btn-success"  type="submit">{{__("Save")}} </button>
+                    <a class= "btn btn-sm btn-error" href="{{route("proyectos.index")}}">{{__("Cancel")}}</a>
                 </div>
             </div>
         </form>

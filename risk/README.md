@@ -179,4 +179,59 @@ He creado una tabla, simplemente en cada td necesario se ven los valores de la v
 le ha enviado el controller.
 
 
+## Traducción
+
+### Instalación
+Para instalar hacemos 
+```bash
+composer require laravel-lang/lang
+```
+Ahora publicamos los idimas con:
+```bash
+php artisan lang:publish
+```
+Después instalaremos un idioma en concreto, en este caso instalaré el español, ingles y francés:
+```bash
+php artisan lang:add es
+php artisan lang:add en
+php artisan lang:add fr
+```
+
+### Layout
+Ahora vamos a crear el elemento visual para seleccionar el lenguaje, he cogido la plantilla que tenía de 
+daisyui del nav y he adaptado un menú desplegable a los idiomas.
+Para ello para mostrar el primer idioma he cogido usado el archivo [lang.php](./config/lang.php) y lo he rellenado
+con un array que contiene el nombre de cada lenguaje y su bandera.
+Puedo acceder a ese archivo usando config('lang')
+Así que mostrará el lenguaje que se está usando actualmente obteniendo del array de configuración el name del
+idioma que está configurado en .env, con config( 'lang')[App::getLocale()]['name']
+Luego he hecho un bucle para mostrar todos los lenguajes que hay y poder seleccionar el que quieras
+
+### Middleware
+Ahora usaremos un middleware para que cuando seleccionemos el lenguaje que queramos verdaderamente se cambie en el 
+archivo .env
+
+Lo crearemos con
+```bash
+php artisan make:middleware LanguageMiddleware
+```
+Ahora en el middleware pondremos que si hay una sesión con locale se cambie el env al valor de la sesión
+y si no hay sesión locale que se cree con el valor de .env
+
+Finalmente para que se ejecute este middleware iremos a [app.php](./bootstrap/app.php) y dentro de la función
+withMiddleware añadiremos los middleware que queramos usar, en nuestro caso queremos que en las vistas de web 
+se ejecute el middleware LanguageMiddleware
+
+### Controller
+Ahora crearemos el controlador que cambie la sesión del lenguaje para el middleware.
+
+Crearemos el controller con:
+```bash
+php artisan make:controller LanguageController 
+```
+
+### Rutas
+Finalmente añadiremos la ruta para que cuando llamemos a language/{locale} ejecute el controlador
+
+
 

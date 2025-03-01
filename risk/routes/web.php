@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProyectoController;
+use App\Http\Controllers\LanguageController;
 
 Route::get('/', function () {
     return view('home');
@@ -14,6 +15,9 @@ Route::get('/home', function () {
 
 Route::resource('proyectos',ProyectoController::class)
     ->middleware('auth');
+
+Route::get('language/{locale}',
+    LanguageController:: class)->name('language');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
