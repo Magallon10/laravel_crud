@@ -39,7 +39,7 @@
 
                     <li> <form action="{{route("logout")}}" method="POST">
                             @csrf
-                            <input class="btn" type="submit" value="Logout">
+                            <input class="btn" type="submit" value="{{__("Logout")}}">
                         </form></li>
                 </ul>
             </div>

@@ -9,4 +9,8 @@ class Alumno extends Model
 {
     /** @use HasFactory<\Database\Factories\AlumnoFactory> */
     use HasFactory;
+
+    public function proyecto(){
+        return $this->belongsTo(Proyecto::class);
+    }
 }

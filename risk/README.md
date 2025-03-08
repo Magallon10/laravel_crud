@@ -233,5 +233,21 @@ php artisan make:controller LanguageController
 ### Rutas
 Finalmente añadiremos la ruta para que cuando llamemos a language/{locale} ejecute el controlador
 
+## Relación 1:N
 
+### Crear modelo
+```bash
+php artisan make:model Alumno -a 
+```
 
+### Asignar clave foránea a la tabla
+En la migración de Alumno añadiremos la clave foránea con foreignId y añadiremos todos los campos del alumno
+
+### Poblar la tabla alumnos
+Haremos que en el seeder de proyecto se creen varios alumnos por cada proyecto con la funcion each
+
+### Modelos
+Ahora modificaremos los modelos para disponer de alumno como si fuera un atributo
+multivaluado dentro de cada proyecto
+
+Esto lo haremos poniendo el me modelo de proyecto el hasMany y en el alumno el belognsTo
