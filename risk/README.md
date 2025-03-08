@@ -251,3 +251,7 @@ Ahora modificaremos los modelos para disponer de alumno como si fuera un atribut
 multivaluado dentro de cada proyecto
 
 Esto lo haremos poniendo el me modelo de proyecto el hasMany y en el alumno el belognsTo
+
+### Vista
+Finalmente como ahora los proyectos tienen asociados alumnos podemos acceder a sus datos, por lo tanto en la vista 
+voy a poner cuantos alumnos hay en cada proyecto

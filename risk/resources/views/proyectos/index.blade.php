@@ -10,7 +10,7 @@
                 @foreach($campos as $campo)
                     <th>{{$campo}}</th>
                 @endforeach
-                <th></th><th></th>
+                <th>Numero alumnos</th>
             </tr>
             </thead>
             <tbody>
@@ -19,7 +19,9 @@
                     @foreach($campos as $campo)
                         <td>{{$fila->$campo}}</td>
                     @endforeach
-                    {{--El edit--}}
+                        <td>{{ $fila->alumno->count() }}</td>
+
+                        {{--El edit--}}
                     <td>
                         <a href="{{route("proyectos.edit", $fila->id)}}">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="hover:text-blue-600 size-6">

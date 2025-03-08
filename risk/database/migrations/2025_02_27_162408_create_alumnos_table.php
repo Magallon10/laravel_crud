@@ -14,9 +14,8 @@ return new class extends Migration
         Schema::create('alumnos', function (Blueprint $table) {
             $table->id();
             $table->string('nombre');
-            $table->string('f_nac');
+            $table->string('edad');
             $table->string('dni')->unique();
-            $table->string('email')->unique();
             $table->foreignId("proyecto_id")
                 ->constrained()
                 ->onUpdate('cascade')
